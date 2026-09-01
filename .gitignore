@@ -27,6 +27,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-
-# npm lockfile (project uses pnpm)
-package-lock.json
