@@ -1,3 +1,0 @@
-# Cloudflare Pages SPA fallback — let the client-side router (wouter** handle
-# deep links / unknown paths (renders the NotFound page for missing routes).
-/* /index.html 200
