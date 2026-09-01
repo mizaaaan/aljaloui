@@ -1,0 +1,211 @@
+/* Aljaloui / Midnight Atelier — graphite canvas, quiet-luxury spacing, electric-blue motion cues. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: #5fe7ff;
+  --primary-foreground: #061014;
+  --sidebar-primary: #5fe7ff;
+  --sidebar-primary-foreground: #061014;
+  --chart-1: #5fe7ff;
+  --chart-2: #8cf4c2;
+  --chart-3: #aac6cf;
+  --chart-4: #507582;
+  --chart-5: #24353e;
+  --radius: 0.8rem;
+  --background: #080b0f;
+  --foreground: #e9f1f4;
+  --card: #10151a;
+  --card-foreground: #e9f1f4;
+  --popover: #10151a;
+  --popover-foreground: #e9f1f4;
+  --secondary: #161d23;
+  --secondary-foreground: #d5e1e5;
+  --muted: #111820;
+  --muted-foreground: #82919a;
+  --accent: #8cf4c2;
+  --accent-foreground: #051510;
+  --destructive: #ff7f78;
+  --destructive-foreground: #160605;
+  --border: rgba(148, 188, 201, 0.16);
+  --input: rgba(148, 188, 201, 0.16);
+  --ring: #5fe7ff;
+  --sidebar: #10151a;
+  --sidebar-foreground: #e9f1f4;
+  --sidebar-accent: #161d23;
+  --sidebar-accent-foreground: #e9f1f4;
+  --sidebar-border: rgba(148, 188, 201, 0.16);
+  --sidebar-ring: #5fe7ff;
+}
+
+.dark {
+  --primary: #5fe7ff;
+  --primary-foreground: #061014;
+  --sidebar-primary: #5fe7ff;
+  --sidebar-primary-foreground: #061014;
+  --background: #080b0f;
+  --foreground: #e9f1f4;
+  --card: #10151a;
+  --card-foreground: #e9f1f4;
+  --popover: #10151a;
+  --popover-foreground: #e9f1f4;
+  --secondary: #161d23;
+  --secondary-foreground: #d5e1e5;
+  --muted: #111820;
+  --muted-foreground: #82919a;
+  --accent: #8cf4c2;
+  --accent-foreground: #051510;
+  --destructive: #ff7f78;
+  --destructive-foreground: #160605;
+  --border: rgba(148, 188, 201, 0.16);
+  --input: rgba(148, 188, 201, 0.16);
+  --ring: #5fe7ff;
+  --sidebar: #10151a;
+  --sidebar-foreground: #e9f1f4;
+  --sidebar-accent: #161d23;
+  --sidebar-accent-foreground: #e9f1f4;
+  --sidebar-border: rgba(148, 188, 201, 0.16);
+  --sidebar-ring: #5fe7ff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+/* Aljaloui / Midnight Atelier — page-specific surfaces and motion primitives. */
+.aljaloui-shell {
+  background: radial-gradient(circle at 72% 16%, rgba(53,112,131,.14), transparent 26rem), radial-gradient(circle at 7% 56%, rgba(95,231,255,.055), transparent 32rem), #080b0f;
+}
+.grain { pointer-events:none; position:fixed; z-index:30; inset:0; opacity:.055; mix-blend-mode:screen; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E"); }
+.display-serif { font-family:'DM Serif Display', serif; font-style:italic; }
+.instrument-label { color:#78909a; font-size:.65rem; font-weight:600; letter-spacing:.18em; line-height:1.35; text-transform:uppercase; }
+.route-line { position:relative; }
+.route-line::after { content:''; display:inline-block; width:4.25rem; height:1px; margin:0 0 .2rem .75rem; background:linear-gradient(90deg,#5fe7ff,transparent); vertical-align:middle; }
+.glass-panel { background:linear-gradient(145deg,rgba(22,30,36,.8),rgba(10,14,18,.64)); border:1px solid rgba(170,213,224,.14); box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 24px 70px rgba(0,0,0,.16); backdrop-filter:blur(18px); }
+.hero-stage { background:radial-gradient(ellipse at 50% 64%,rgba(95,231,255,.16),transparent 42%),linear-gradient(145deg,rgba(21,30,36,.82),rgba(7,11,15,.35)); border:1px solid rgba(157,199,211,.13); box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 32px 100px rgba(0,0,0,.25); }
+.hero-car { transform-style:preserve-3d; filter:drop-shadow(0 28px 30px rgba(0,0,0,.48)); transition:transform 700ms cubic-bezier(.77,0,.175,1),filter 240ms cubic-bezier(.23,1,.32,1); will-change:transform; }
+.hero-car.chauffeur-mode { filter:drop-shadow(0 28px 30px rgba(0,0,0,.48)) drop-shadow(0 0 22px rgba(95,231,255,.14)); }
+.ambient-orbit { animation:orbit 14s linear infinite; transform-origin:50% 50%; }
+@keyframes orbit { to { transform:rotate(360deg); } }
+.float-y { animation:float-y 5.5s ease-in-out infinite; }
+@keyframes float-y { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+.car-card { transition:transform 240ms cubic-bezier(.23,1,.32,1),border-color 240ms ease,box-shadow 240ms ease; }
+.car-card:hover,.car-card.is-active { transform:translateY(-5px); border-color:rgba(95,231,255,.42); box-shadow:0 26px 70px rgba(0,0,0,.28),0 0 28px rgba(95,231,255,.08); }
+.car-card .car-card-image { transition:transform 500ms cubic-bezier(.23,1,.32,1),filter 240ms ease; }
+.car-card:hover .car-card-image { transform:scale(1.045) translateY(-4px); filter:saturate(1.12) brightness(1.08); }
+.car-card .engine-glow { opacity:0; transition:opacity 240ms ease; }
+.car-card:hover .engine-glow,.car-card.is-active .engine-glow { opacity:1; }
+.toggle-track { transition:background 220ms cubic-bezier(.23,1,.32,1),border-color 220ms ease; }
+.toggle-knob { transition:transform 260ms cubic-bezier(.23,1,.32,1),background 220ms ease,box-shadow 220ms ease; }
+.feature-row { transition:background 220ms ease,transform 220ms cubic-bezier(.23,1,.32,1); }
+.feature-row:hover { background:rgba(95,231,255,.035); transform:translateX(5px); }
+.modal-backdrop { animation:modal-in 260ms cubic-bezier(.23,1,.32,1) both; }
+@keyframes modal-in { from{opacity:0} to{opacity:1} }
+.modal-panel { animation:panel-in 360ms cubic-bezier(.23,1,.32,1) both; }
+@keyframes panel-in { from{opacity:0;transform:translateY(14px) scale(.97)} to{opacity:1;transform:translateY(0) scale(1)} }
+.cta-button { transition:transform 160ms cubic-bezier(.23,1,.32,1),box-shadow 240ms ease,background 240ms ease; }
+.cta-button:hover { transform:translateY(-3px); box-shadow:0 20px 45px rgba(95,231,255,.18); }
+.cta-button:active { transform:scale(.97); }
+@media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.hero-car{transform:none!important} }
+@media (max-width:767px) { .route-line::after{width:2rem}.hero-stage{min-height:31rem} }
