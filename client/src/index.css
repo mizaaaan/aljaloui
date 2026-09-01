@@ -183,7 +183,7 @@
 .route-line { position:relative; }
 .route-line::after { content:''; display:inline-block; width:4.25rem; height:1px; margin:0 0 .2rem .75rem; background:linear-gradient(90deg,#5fe7ff,transparent); vertical-align:middle; }
 .glass-panel { background:linear-gradient(145deg,rgba(22,30,36,.8),rgba(10,14,18,.64)); border:1px solid rgba(170,213,224,.14); box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 24px 70px rgba(0,0,0,.16); backdrop-filter:blur(18px); }
-.hero-stage { background:radial-gradient(ellipse at 50% 64%,rgba(95,231,255,.16),transparent 42%),linear-gradient(145deg,rgba(21,30,36,.82),rgba(7,11,15,.35)); border:1px solid rgba(157,199,211,.13); box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 32px 100px rgba(0,0,0,.25); }
+.hero-stage { perspective:1400px; background:radial-gradient(ellipse at 50% 64%,rgba(95,231,255,.16),transparent 42%),linear-gradient(145deg,rgba(21,30,36,.82),rgba(7,11,15,.35)); border:1px solid rgba(157,199,211,.13); box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 32px 100px rgba(0,0,0,.25); }
 .hero-car { transform-style:preserve-3d; filter:drop-shadow(0 28px 30px rgba(0,0,0,.48)); transition:transform 700ms cubic-bezier(.77,0,.175,1),filter 240ms cubic-bezier(.23,1,.32,1); will-change:transform; }
 .hero-car.chauffeur-mode { filter:drop-shadow(0 28px 30px rgba(0,0,0,.48)) drop-shadow(0 0 22px rgba(95,231,255,.14)); }
 .ambient-orbit { animation:orbit 14s linear infinite; transform-origin:50% 50%; }
@@ -207,5 +207,5 @@
 .cta-button { transition:transform 160ms cubic-bezier(.23,1,.32,1),box-shadow 240ms ease,background 240ms ease; }
 .cta-button:hover { transform:translateY(-3px); box-shadow:0 20px 45px rgba(95,231,255,.18); }
 .cta-button:active { transform:scale(.97); }
-@media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.hero-car{transform:none!important} }
+@media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto} *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.hero-car{transform:translate(-50%,-50%)!important} }
 @media (max-width:767px) { .route-line::after{width:2rem}.hero-stage{min-height:31rem} }
