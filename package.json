@@ -1,0 +1,9 @@
+{
+  "name": "aljaloui-delivery-site",
+  "version": "1.0.0",
+  "description": "Aljaloui Delivery website backup from live Cloudflare Worker",
+  "scripts": {
+    "start": "npx serve .",
+    "deploy": "npx wrangler deploy"
+  }
+}
