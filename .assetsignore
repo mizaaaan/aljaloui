@@ -1,0 +1,9 @@
+**/.git
+**/.wrangler
+**/.github
+.gitignore
+.assetsignore
+README.md
+package.json
+wrangler.jsonc
+index-local.html
